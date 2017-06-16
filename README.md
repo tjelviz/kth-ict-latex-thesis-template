@@ -29,4 +29,4 @@ Av: Olle Calderon ollecal(at)kth.se
 - [ ] Exempel för tabeller, ekvationer, TikZ och CircuiTikZ.
 - [ ] Lathund för hur man exporterar MATLAB-plottar till LaTeX.
 - [ ] Exempel för datapresentation med SI-enheter (siunitx).
-- [ ] Mall för opponering.
+- [X] Mall för opponering.
