@@ -1,5 +1,6 @@
 # kth-ict-latex-thesis-template
 **Slutrapportmall för examensarbete på KTH ICT.**
+
 Av: Olle Calderon ollecal(at)kth.se
 
 ## Krav:
