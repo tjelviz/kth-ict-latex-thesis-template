@@ -11,7 +11,7 @@ Av: Olle Calderon ollecal(at)kth.se
 
 ## Användning:
 - Ladda ned repot i sin helhet.
-- "slutrapport.tex" är själva rapportens innehåll. Det är här du skriver allt.
+- `slutrapport.tex` är själva rapportens innehåll. Det är här du skriver allt.
 - Lägg referenser i "referenser.bib" (BibTeX).
 - Vissa inställningar kan göras under "INSTÄLLNINGAR" i "slutrapport.tex"
 - För att generera PDF, kompilera "slutrapport.tex".
