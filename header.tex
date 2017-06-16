@@ -40,7 +40,7 @@
 \usepackage{setspace}	% Adjust spacings
 \usepackage{datetime} % this month etc
 
-\author{\authorname}	
+%\author{\firstauthorname\\ \secondauthorname}	
 
 %----------------- SETTINGS -----------------
 \setlength\parindent{0pt}	% No paragraph indents.
@@ -127,8 +127,7 @@
 }
 \newdateformat{monthyeardate}{%
   \monthname[\THEMONTH] \THEYEAR}
-\newenvironment{foerord}{\section*{Förord}}{~\\[2cm] Stockholm, \monthyeardate\today\\\theauthor
-\newpage~\newpage\pagenumbering{arabic}}
+\newenvironment{foerord}{\section*{Förord}}{\newpage~\newpage\pagenumbering{arabic}}
 
 \newcommand{\figur}[4]
 {
