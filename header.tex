@@ -1,9 +1,6 @@
 %	Slutrapportmall för examensarbete i LaTeX
 % Av: Olle Calderon 2017
 % Krav: TeXLive samt en TeX-editor. Jag rekommenderar editorn TeXmaker: http://www.xm1math.net/texmaker/
-% Användning: Placera denna fil ("header.tex") i samma mapp som din rapports TeX-fil ("valfritt_filnamn.tex"). I din rapports TeX-fil, skriv följande rad först: \input{header}
-% Detta inkluderar koden från denna fil (header.tex).
-
 \documentclass[11pt,a4paper,twoside]{article}
 
 %----------------- PACKAGES -----------------
@@ -40,8 +37,6 @@
 \usepackage{setspace}	% Adjust spacings
 \usepackage{datetime} % this month etc
 
-%\author{\firstauthorname\\ \secondauthorname}	
-
 %----------------- SETTINGS -----------------
 \setlength\parindent{0pt}	% No paragraph indents.
 \graphicspath{{./pics/}}		% Put figures in /pics/ folder
@@ -50,7 +45,6 @@
 \setstretch{1.0}
 
 \bibliographystyle{IEEEtran}
-
 
 %----------------- C-kod -----------------
 \lstdefinestyle{customc}{
@@ -81,21 +75,16 @@
 \newcommand{\kod}[1]{{\ttfamily #1}}
 \newcommand{\postbegindocument}
 {
-	% Fixa framsida här: https://intra.kth.se/kth-cover/
-	% Ladda ned PDF och skriv in filnamn nedan.
 	\pagenumbering{gobble}
-	%\includepdf[pages=1]{pics/kthcover1.pdf}
 	\includepdf[pages=1]{pics/\pdf}
 	~\clearpage
 	
 	% Ta bort att författarnamn stryks över i om det är samma författare för olika verk och de hamnar efter varandra i referenser. Ligger även ett kommando högst i bibtex-filen.
 	\bstctlcite{IEEEexample:BSTcontrol}
-	
 	\pagenumbering{roman}	% Romerska siffror för sidonumrering
 }
 
 \newcommand{\preenddocument}{~\clearpage \pagenumbering{gobble}~\clearpage
-%\includepdf[pages=2]{pics/kthcover1.pdf}
 \includepdf[pages=2]{pics/\pdf}
 }
 
@@ -107,7 +96,6 @@
 \section*{Bilagor}
 \addcontentsline{toc}{section}{Bilagor}
 \appendix}
-
 
 \newenvironment{sammanfattning}{\abstracttitlefont{Sammanfattning}}{}
 \renewenvironment{abstract}{\abstracttitlefont{Abstract}}{}
@@ -138,7 +126,6 @@
 		\label{#4}
 	\end{figure}
 }
-
 
 % För subsubsubsections
 \setcounter{secnumdepth}{4}
