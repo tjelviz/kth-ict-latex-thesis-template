@@ -24,9 +24,9 @@ Av: Olle Calderon ollecal(at)kth.se
 
 ## Möjliga framtida förbättringar:
 - [ ] Automatisk generering av blanksidor så att kthcover-baksida hamnar på sista arkets rygg.
-- [ ] Högerjusterad sidnumrering för innehållsförteckning (krockar med "fancy"?).
+- [ ] Högerjusterad sidnumrering för innehållsförteckning (krockar med `fancy`?).
 - [ ] Makro för tabeller.
-- [ ] Exempel för tabeller, ekvationer, TikZ och CircuiTikZ.
+- [ ] Exempel för tabeller, ekvationer, `TikZ` och `CircuiTikZ`.
 - [ ] Lathund för hur man exporterar MATLAB-plottar till LaTeX.
-- [ ] Exempel för datapresentation med SI-enheter (siunitx).
+- [ ] Exempel för datapresentation med SI-enheter (`siunitx`).
 - [X] Mall för opponering.
