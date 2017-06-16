@@ -1,0 +1,187 @@
+%	Slutrapportmall för examensarbete i LaTeX
+% Av: Olle Calderon 2017
+% Krav: TeXLive samt en TeX-editor. Jag rekommenderar editorn TeXmaker: http://www.xm1math.net/texmaker/
+% Användning: Placera denna fil ("header.tex") i samma mapp som din rapports TeX-fil ("valfritt_filnamn.tex"). I din rapports TeX-fil, skriv följande rad först: \input{header}
+% Detta inkluderar koden från denna fil (header.tex).
+
+\documentclass[11pt,a4paper,twoside]{article}
+
+%----------------- PACKAGES -----------------
+\usepackage[swedish]{babel}			% Avstavning, språk etc: SWÄRJE
+\usepackage[hidelinks]{hyperref}	% Clickable references, links etc.
+\usepackage[left=32mm, right=32mm, top=32mm, bottom=32mm]{geometry}		% Page margins
+\usepackage[utf8]{inputenc}	% UTF-8 encoding (good for e.g. åäö) 
+\usepackage[T1]{fontenc}	% T1 encoding
+\usepackage{graphicx}	% For figures
+\usepackage{wrapfig}	% For text-wrapped figures
+\usepackage{titling}	% For title info etc.
+\usepackage{titlesec}	% Formatting of sections etc.
+\usepackage{helvet}		% Helvetica, Arial:ish
+\usepackage{tocloft}	% ToC fixes
+\usepackage{fancyhdr}	% For header and footer formatting
+\usepackage{tikz}		% Life sucks without TikZ
+\usepackage{circuitikz}	% Life sucks even harder without circuitz
+\usetikzlibrary{backgrounds}	% For doing tikz on top of pics
+\usepackage{pgfplots}	% For doing plots and stuff
+\usepackage{pdfpages}	% For importing cover pages
+\usepackage{amsmath}	% Mathematical symbols
+\usepackage{gensymb}	% More math symbols
+\usepackage[font={footnotesize}]{subcaption}	% For subfigures
+\usepackage[font={footnotesize}]{caption}		% Reduce caption font size
+\usepackage{float}		% For fancy float options
+\usepackage{graphics}	% For placing graphics in /pics/ folder
+\usepackage{xcolor}		% Fancy colors
+\usepackage{IEEEtrantools}	% For IEEE style formatting
+\usepackage{verbatim} % For comment macro
+\usepackage{microtype} % Squeeze text to fit margins
+\usepackage{listings}	% Listings for code snippets etc.
+\usepackage{xcolor}	% Color package
+\usepackage{color}	% More colors
+\usepackage{setspace}	% Adjust spacings
+\usepackage{datetime} % this month etc
+
+\author{\authorname}	
+
+%----------------- SETTINGS -----------------
+\setlength\parindent{0pt}	% No paragraph indents.
+\graphicspath{{./pics/}}		% Put figures in /pics/ folder
+
+\raggedbottom	% Solves problem where section spacing is wacky
+\setstretch{1.0}
+
+\bibliographystyle{IEEEtran}
+
+
+%----------------- C-kod -----------------
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  captionpos=b,
+  frame=trBL,  
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  tabsize=3
+}
+\renewcommand{\lstlistingname}{Kodavsnitt}
+\lstset{escapechar=@,style=customc}
+
+%----------------- MACROS -----------------
+\titleformat{\section}{\fontsize{14}{14}\arialdef\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\fontsize{13}{13}\arialdef\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\fontsize{12}{12}\arialdef\bfseries}{\thesubsubsection}{1em}{}
+
+\newcommand{\bilaga}[2]{\subsection*{#1 - #2}}
+\newcommand{\tref}[1]{\ref{#1} \textit{\nameref{#1}}}
+\newcommand{\kod}[1]{{\ttfamily #1}}
+\newcommand{\postbegindocument}
+{
+	% Fixa framsida här: https://intra.kth.se/kth-cover/
+	% Ladda ned PDF och skriv in filnamn nedan.
+	\pagenumbering{gobble}
+	%\includepdf[pages=1]{pics/kthcover1.pdf}
+	\includepdf[pages=1]{pics/\pdf}
+	~\clearpage
+	
+	% Ta bort att författarnamn stryks över i om det är samma författare för olika verk och de hamnar efter varandra i referenser. Ligger även ett kommando högst i bibtex-filen.
+	\bstctlcite{IEEEexample:BSTcontrol}
+	
+	\pagenumbering{roman}	% Romerska siffror för sidonumrering
+}
+
+\newcommand{\preenddocument}{~\clearpage \pagenumbering{gobble}~\clearpage
+%\includepdf[pages=2]{pics/kthcover1.pdf}
+\includepdf[pages=2]{pics/\pdf}
+}
+
+\newcommand{\referenser}{\clearpage
+\addcontentsline{toc}{section}{Referenser}
+\bibliography{referenser.bib}}
+
+\newcommand{\bilagor}{\clearpage
+\section*{Bilagor}
+\addcontentsline{toc}{section}{Bilagor}
+\appendix}
+
+
+\newenvironment{sammanfattning}{\abstracttitlefont{Sammanfattning}}{}
+\renewenvironment{abstract}{\abstracttitlefont{Abstract}}{}
+\newenvironment{nyckelord}{~\\~\\\textbf{Nyckelord}\\}{\clearpage}
+\newenvironment{keywords}{~\\~\\\textbf{Keywords}\\}{\clearpage}
+
+\newenvironment{definitioner}
+{
+	\section*{Definitioner}
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{l p{12cm}}
+}
+{
+		\end{tabular}
+		\renewcommand{\arraystretch}{1}
+		\newpage~\clearpage
+}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
+\newenvironment{foerord}{\section*{Förord}}{~\\[2cm] Stockholm, \monthyeardate\today\\\theauthor
+\newpage~\newpage\pagenumbering{arabic}}
+
+
+% För subsubsubsections
+\setcounter{secnumdepth}{4}
+% \setcounter{tocdepth}{4}	% Avkommentera för att ha med subsubsubsubsections i ToCen
+\titleformat{\paragraph}
+{\fontsize{12}{12}\arialit}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}}
+
+% ---- FÖR TOCEN ---
+\addto\captionsswedish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {\fontsize{16}{16}\arialdef\bfseries Innehåll}%
+}
+
+% Figurförteckning/tabellförteckning
+\renewcommand\cftloftitlefont{\fontsize{16}{16}\arialdef\bfseries}
+\renewcommand\cftlottitlefont{\fontsize{16}{16}\arialdef\bfseries}
+\addto\captionsswedish{\renewcommand{\listfigurename}{Figurförteckning}}
+\addto\captionsswedish{\renewcommand{\listtablename}{Tabellförteckning}}
+
+\renewcommand{\cftsecfont}{\fontsize{12}{12}\arialdef\bfseries}  %Sections text
+\renewcommand{\cftsecpagefont}{\fontsize{12}{12}\arialdef\bfseries}  % Sections nummer
+
+\renewcommand{\cftsubsecfont}{\fontsize{11}{11}\arialdef\bfseries}  % Subsections text
+\renewcommand{\cftsubsecpagefont}{\fontsize{11}{11}\arialdef\bfseries}  % Subsections nummer
+
+\renewcommand{\cftsubsubsecfont}{\fontsize{11}{11}\arialdef}  % Subsubsections text
+\renewcommand{\cftsubsubsecpagefont}{\fontsize{11}{11}\arialdef}  % Subsubsections nummer
+
+\renewcommand{\cftparafont}{\fontsize{11}{11}\arialit}  % Subsubsubsections text
+\renewcommand{\cftparapagefont}{\fontsize{11}{11}\arialdef}  % Subsubsubsections nummer
+
+\def\cftdotsep{1}	%	Distances between dots in ToC
+\setlength{\cftbeforesecskip}{14pt}	%Add/remove some space before sections in ToC
+\setlength{\cftbeforesubsecskip}{5pt}	%Add/remove some space before subsections in ToC
+\setlength{\cftbeforesubsubsecskip}{5pt}	%Add/remove some space before subsubsections in ToC
+
+
+% ---- PAGE NUMBERING IN BOTTOMRIGHT---
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}	% Remove header line
+\fancyfoot[LE,RO]{\thepage} % Alternate left and right side
+
+%----------------- STYLES -----------------
+\newcommand{\abstracttitlefont}[1]
+{\begin{flushleft}\fontsize{16pt}{16pt}\arialbf{#1}\end{flushleft}}
+
+\newcommand{\arialdef}{\normalfont\sffamily}
+\newcommand{\arialit}{\itshape\sffamily}
+
+\newcommand{\arial}[1]{{\normalfont\sffamily #1}}
+\newcommand{\arialbf}[1]{{\normalfont\sffamily \textbf{#1}}}

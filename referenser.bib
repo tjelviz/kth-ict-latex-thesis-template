@@ -1,0 +1,15 @@
+% http://ftp.acc.umu.se/mirror/CTAN/macros/latex/contrib/IEEEtran/bibtex/IEEEtran_bst_HOWTO.pdf
+% Ta bort att författarnamn stryks över i om det är samma författare för olika verk och de hamnar efter varandra i referenser. Ligger även ett kommando efter \begin{document} i TeX-filen.
+@IEEEtranBSTCTL{IEEEexample:BSTcontrol,
+  CTLdash_repeated_names = "no",
+  CTLname_url_prefix = "[Online]. Tillgänglig:"
+}
+
+
+@book{exempelreferens,
+    author  = "John Doe",
+    title   = {{Bokens titel}},
+    year    = "2000",
+    month = "November",
+    day =  "26"
+}

@@ -1,0 +1,103 @@
+%------------ INSTÄLLNINGAR ------------
+\def \pdf {cover.pdf}					% Framsida (lägg i /pics/)
+\def \authorname {Olle Calderon}		% Författarnamn
+
+% Avstavningar
+\hyphenation{examens-arbete kommunikations-teknik}
+
+\input{header}	% Ladda in headerfil
+
+%------------ HÄR BÖRJAR DOKUMENTET ------------
+\begin{document}
+\postbegindocument
+
+
+%------------ ENGELSK ABSTRACT ------------
+\begin{abstract}
+Here's the abtract in english.
+\end{abstract}
+
+\begin{keywords}
+Thesis, \LaTeX
+\end{keywords}
+
+%------------ SVENSK ABSTRACT ------------
+\begin{sammanfattning}
+Här är svensk sammanfattning.
+\end{sammanfattning}
+
+\begin{nyckelord}
+Tjabba, tjena
+\end{nyckelord}
+
+%------------ INNEHÅLL ------------
+\tableofcontents
+%\listoffigures		% Ta bort kommentar om du vill ha Figurförteckning
+%\listoftables		% Ta bort kommentar om du vill ha Tabellföteckning
+\clearpage
+
+%------------ DEFINITIONER ------------
+\begin{definitioner}
+ICT & Information and Communications Technology (sv. informations- och kommunikationsteknik)\\
+LUT & Lookup table
+\end{definitioner}
+
+%------------ FÖRORD ------------
+\begin{foerord}
+Jag vill inleda denna rapport med att tacka mig själv och \LaTeX.
+\end{foerord}
+
+%------------ INTRODUKTION ------------
+\section{Introduktion}
+Här kommer ett citat \cite{exempelreferens}. Här kommer även en fotnot\footnote{Halloj.}.
+
+\subsection{Bakgrund}
+
+\subsection{Problemställning}
+
+\subsection{Syfte}
+
+\subsection{Mål}
+
+\subsection{Fördelar, etik och hållbarhet}
+
+\subsection{Metod}
+
+\subsection{Avgränsningar}
+
+\subsection{Disposition}
+
+%------------ TEORETISK BAKGRUND ------------
+\clearpage
+\section{Teori och bakgrund}
+
+%------------ METOD ------------
+\clearpage
+\section{Metod}
+
+\subsection{Insamling av mätdata}
+\subsection{Tillförlitlighet och validitet}
+
+%------------ GENOMFÖRANDE ------------
+\clearpage
+\section{Genomförande}
+
+%------------ RESULTAT ------------
+\clearpage
+\section{Resultat}
+
+%------------ SLUTSATS OCH DISKUSSION ------------
+\clearpage
+\section{Slutsats och diskussion}
+
+%------------ REFERENSER ------------
+\referenser
+
+%------------ BILAGOR ------------
+\bilagor
+\section{Testing}
+
+%------------ THE END ------------
+
+\preenddocument
+\end{document}
