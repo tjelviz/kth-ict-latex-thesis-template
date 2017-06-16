@@ -4,8 +4,8 @@
 Av: Olle Calderon ollecal(at)kth.se
 
 ## Krav:
-- TeXLive
-- En LaTeX-editor (jag rekommenderar TeXMaker)
+- TeXLive https://www.tug.org/texlive/ (För MacOS: https://www.tug.org/mactex/)
+- En LaTeX-editor (jag rekommenderar TeXMaker: http://www.xm1math.net/texmaker/)
 
 
 
