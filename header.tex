@@ -130,6 +130,16 @@
 \newenvironment{foerord}{\section*{Förord}}{~\\[2cm] Stockholm, \monthyeardate\today\\\theauthor
 \newpage~\newpage\pagenumbering{arabic}}
 
+\newcommand{\figur}[4]
+{
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=#2\columnwidth]{#1}
+		\caption{#3}
+		\label{#4}
+	\end{figure}
+}
+
 
 % För subsubsubsections
 \setcounter{secnumdepth}{4}
